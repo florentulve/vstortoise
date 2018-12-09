@@ -3,7 +3,7 @@
     "displayName": "TortoiseSVN",
     "description": "A simple TortoiseSVN binding fro Visual Code",
     "repository": {"url":"https://github.com/florentulve/vstortoise"},
-    "version": "1.2.1",
+    "version": "1.2.2",
     "publisher": "florentulve",
     "engines": {
         "vscode": "^1.0.0"

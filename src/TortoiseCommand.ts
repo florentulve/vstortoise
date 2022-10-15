@@ -3,8 +3,8 @@ import {exec as child_exec} from 'child_process';
 export default class TortoiseCommand {
 
     private command :string = "";
-    
-    constructor(command :string) { 
+
+    constructor(command :string) {
         if(command)
             this.command = command;
         else{
@@ -20,7 +20,6 @@ export default class TortoiseCommand {
             console.log(error);
             console.log(stdout);
             console.error(stderr);
-            return;
         });
         child_exec(this.command, callb);
     }

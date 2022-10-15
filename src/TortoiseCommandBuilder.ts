@@ -8,14 +8,14 @@ export default class TortoiseCommandBuilder {
     private static EXE :string = "TortoiseProc.exe";
     private static COMMAND :string =  "\"{exepath}\" /command:{command} /path:\"{filename}\"";
     private isTortoiseInPath :boolean = false;
-    
-    constructor(isTortoiseInPath: boolean) { 
+
+    constructor(isTortoiseInPath: boolean) {
         this.isTortoiseInPath = isTortoiseInPath;
     }
 
-    public build(command :string, filepath :string) :TortoiseCommand{        
+    public build(command :string, filepath :string) :TortoiseCommand{
         let basecmd;
-        const tortoiseConfPath = getConf<string>(TortoiseCommandBuilder.CONF_PATH);
+        const tortoiseConfPath = getConf(TortoiseCommandBuilder.CONF_PATH);
         if(!this.isTortoiseInPath && tortoiseConfPath && fs.existsSync(tortoiseConfPath)){
             basecmd = `${tortoiseConfPath}\\bin\\${TortoiseCommandBuilder.EXE}`;
         }else{
@@ -27,5 +27,5 @@ export default class TortoiseCommandBuilder {
             .replace('{filename}', filepath);
         console.log(finalcmd);
         return new TortoiseCommand(finalcmd);
-    }   
+    }
 }

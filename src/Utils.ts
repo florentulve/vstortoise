@@ -1,11 +1,10 @@
-import { window } from 'vscode';
-import {workspace as vsworkspace} from 'vscode';
+import { window, workspace } from 'vscode';
 
 export function getActiveFilename(context: any): string {
-    return (context && context.fsPath) ? context.fsPath : window.activeTextEditor.document.fileName;
+    return (context && context.fsPath) ? context.fsPath : window.activeTextEditor?.document.fileName;
 }
 
-export function getConf<T>(key:string){
-    return vsworkspace.getConfiguration().get<string>(key);
+export function getConf(key: string){
+    return workspace.getConfiguration().get<string>(key);
 }
 

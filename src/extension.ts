@@ -1,4 +1,4 @@
-'use strict';
+
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import { ExtensionContext, commands, window } from 'vscode';
@@ -37,7 +37,7 @@ export function activate(context: ExtensionContext) {
 
     let svnCommitRevert = commands.registerCommand('vstortoise.svnRevert', (commandContext :any) => {
         //Force save changes befor revert until find a way to reload the vscode.window.activeTextEditor.document
-        window.activeTextEditor.document.save().then(()=>{
+        window.activeTextEditor?.document.save().then(()=>{
             commandBuilder.build('revert', getActiveFilename(commandContext)).exec();
         })
     });
@@ -46,7 +46,6 @@ export function activate(context: ExtensionContext) {
         commandBuilder.build('update', getActiveFilename(commandContext)).exec()
 
     });
-
 
     context.subscriptions.push(svnLogCommand);
     context.subscriptions.push(svnCommitCommand);
@@ -58,5 +57,6 @@ export function activate(context: ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {
+export function deactivate(){
+    return null;
 }

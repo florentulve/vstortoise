@@ -38,27 +38,27 @@
         "commands": [
             {
                 "command": "vstortoise.svnLog",
-                "title": "SVN Log"
+                "title": "Log"
             },
             {
                 "command": "vstortoise.svnRevert",
-                "title": "SVN Revert"
+                "title": "Revert"
             },
             {
                 "command": "vstortoise.svnCommit",
-                "title": "SVN Commit"
+                "title": "Commit"
             },
             {
                 "command": "vstortoise.svnUpdate",
-                "title": "SVN Update"
+                "title": "Update"
             },
             {
                 "command": "vstortoise.svnDiff",
-                "title": "SVN Diff"
+                "title": "Diff"
             },
             {
                 "command": "vstortoise.svnBlame",
-                "title": "SVN Blame"
+                "title": "Blame"
             }
         ],
         "keybindings": [
@@ -83,48 +83,48 @@
                 "key": "shift+alt+u"
             }
         ],
+        "submenus": [
+            {
+              "id": "tortoise",
+              "label": "TortoiseSVN"
+            }
+        ],
         "menus": {
-            "explorer/context": [
+            "tortoise" : [
+                {
+                    "command": "vstortoise.svnLog",
+                    "group": "TortoiseSVN@1"
+                },
                 {
                     "command": "vstortoise.svnUpdate",
-                    "group": "TortoiseSVN"
+                    "group": "TortoiseSVN@2"
                 },
                 {
                     "command": "vstortoise.svnCommit",
-                    "group": "TortoiseSVN"
-                },
-                {
-                    "command": "vstortoise.svnLog",
-                    "group": "TortoiseSVN"
+                    "group": "TortoiseSVN@3"
                 },
                 {
                     "command": "vstortoise.svnRevert",
-                    "group": "TortoiseSVN"
+                    "group": "TortoiseSVN@4"
                 },
                 {
                     "command": "vstortoise.svnDiff",
+                    "group": "TortoiseSVN@5"
+                },
+                {
+                    "command": "vstortoise.svnBlame",
+                    "group": "TortoiseSVN@6"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "submenu": "tortoise",
                     "group": "TortoiseSVN"
                 }
             ],
             "editor/context": [
                 {
-                    "command": "vstortoise.svnUpdate",
-                    "group": "TortoiseSVN"
-                },
-                {
-                    "command": "vstortoise.svnCommit",
-                    "group": "TortoiseSVN"
-                },
-                {
-                    "command": "vstortoise.svnLog",
-                    "group": "TortoiseSVN"
-                },
-                {
-                    "command": "vstortoise.svnRevert",
-                    "group": "TortoiseSVN"
-                },
-                {
-                    "command": "vstortoise.svnDiff",
+                    "submenu": "tortoise",
                     "group": "TortoiseSVN"
                 }
             ]
